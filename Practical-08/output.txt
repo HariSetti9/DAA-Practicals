@@ -1,0 +1,31 @@
+BFS: ['A', 'B', 'C', 'D', 'E', 'F']
+DFS: ['A', 'B', 'D', 'E', 'F', 'C']
+
+BFS QUEUE TRACE
+Step  Processed  Queue after processing  Traversal
+0     -          [A]                     []
+1     A          [B, C]                  [A]
+2     B          [C, D, E]               [A, B]
+3     C          [D, E, F]               [A, B, C]
+4     D          [E, F]                  [A, B, C, D]
+5     E          [F]                     [A, B, C, D, E]
+6     F          []                      [A, B, C, D, E, F]
+
+DFS STACK TRACE (top of stack is shown at the right)
+Step  Popped  Stack after processing  Traversal
+0     -       [A]                     []
+1     A       [C, B]                  [A]
+2     B       [C, E, D]               [A, B]
+3     D       [C, E]                  [A, B, D]
+4     E       [C, F]                  [A, B, D, E]
+5     F       [C, C]                  [A, B, D, E, F]
+6     C       [C]                     [A, B, D, E, F, C]
+7     C       []                      already visited; skipped
+
+FINAL RESULTS
+BFS traversal: A -> B -> C -> D -> E -> F
+DFS traversal: A -> B -> D -> E -> F -> C
+BFS time complexity: Theta(V + E)
+DFS time complexity: Theta(V + E)
+BFS auxiliary space: Theta(V)
+DFS auxiliary space: Theta(V)
